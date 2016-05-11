@@ -18,6 +18,10 @@ func TestGo(t *testing.T) {
 }
 
 func TestGoFor(t *testing.T) {
+	testLoop := func() {
+		fmt.Println("loop forever")
+	}
+
 	s := NewShutdown()
 
 	for i := 0; i < 10; i++ {
@@ -29,8 +33,4 @@ func TestGoFor(t *testing.T) {
 
 	s.Shutdown()
 	fmt.Println("All routines shutdown")
-}
-
-func testLoop() {
-	fmt.Println("loop forever")
 }
