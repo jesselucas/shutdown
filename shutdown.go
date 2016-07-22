@@ -7,14 +7,14 @@ import "sync"
 // continuing
 type Shutdown struct {
 	wg       *sync.WaitGroup
-	shutdown chan int
+	shutdown chan struct{}
 }
 
 // NewShutdown returns a SyncUtil struct
 func NewShutdown() *Shutdown {
 	s := new(Shutdown)
 	s.wg = new(sync.WaitGroup)
-	s.shutdown = make(chan int)
+	s.shutdown = make(chan struct{})
 
 	return s
 }
